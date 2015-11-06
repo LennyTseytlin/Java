@@ -14,21 +14,17 @@ public class Bubble {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-      Scanner in = new Scanner(System.in);
-      int n = 0;
-      System.out.println("Input number of integers to sort");
-      n = in.nextInt();
- 
-      int arr[] = new int[n];
- 
-      System.out.println("Enter " + n + " integers");
-      for (int i = 0; i < n; i++) 
-        arr[i] = in.nextInt();
-
+     public static void main(String[] args) {
+        double a[] = parse(args);
+        bubble(a);
+        for (int i = 0; i < a.length; ++i)
+            System.out.print(a[i]+" ");
+        System.out.println();
+    }
+    public static boolean bubble(double arr[]) {
       boolean swapped = true;
       int j = 0;
-      int tmp;
+      double tmp;
       while (swapped) {
             swapped = false;
             j++;
@@ -39,10 +35,15 @@ public class Bubble {
                         arr[i + 1] = tmp;
                         swapped = true;
                   }
-            }                
+            }       
       }
-      for (int i = 0; i < arr.length; i++)
-          System.out.println(arr[i]);
+     return swapped;
+    }
+       private static double[] parse(String[] input) {
+        double res[] = new double[input.length];
+        for (int i = 0; i < input.length; i++)
+            res[i] = Double.parseDouble(input[i]);
+        return res;
     }
     
 }
